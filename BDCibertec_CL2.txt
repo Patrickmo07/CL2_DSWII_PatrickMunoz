@@ -1,0 +1,33 @@
+create database BDCibertec;
+use BDCibertec;
+CREATE TABLE Autor
+(
+ IdAutor 		INT NOT NULL AUTO_INCREMENT,
+ NomAutor		VARCHAR(50) NOT NULL,
+ ApeAutor 		VARCHAR(50) NOT NULL,
+ FechNacAutor	DATE NOT NULL,
+ PRIMARY KEY (IdAutor)
+);
+
+CREATE TABLE Publicacion
+(
+ IdPublicacion 		INT NOT NULL AUTO_INCREMENT,
+ Titulo 			VARCHAR(250) NOT NULL,
+ Resumen 			VARCHAR(250) NOT NULL,
+ FechPublicacion	DATE NOT NULL,
+ IdAutor 			INT NOT NULL,
+ PRIMARY KEY (IdPublicacion),
+ FOREIGN KEY (IdAutor) REFERENCES Autor(IdAutor)
+ );
+ 
+insert into Autor values(001,"Patrick", "Munoz", '1996-06-28 00:00:00');
+insert into Autor values(002,"Anderson", "Orezano", '1990-07-08 00:00:00');
+insert into Autor values(003,"Andres", "Rojas", '1999-02-18 00:00:00');
+insert into Autor values(004,"Leo", "Reyes", '1985-04-16 00:00:00');
+insert into Autor values(005,"Milagros", "Leon", '1980-10-10 00:00:00');
+
+insert into Publicacion values(1001,"La casa", "Trata sobre ...", '2000-10-20 00:00:00',003);
+insert into Publicacion values(1002,"La escuela", "Trata sobre ...", '2002-12-24 00:00:00',002);
+insert into Publicacion values(1003,"El trabajo", "Trata sobre ...", '2001-11-21 00:00:00',001);
+insert into Publicacion values(1004,"La universidad", "Trata sobre ...", '2004-01-17 00:00:00',004);
+insert into Publicacion values(1005,"La familia", "Trata sobre ...", '2005-06-26 00:00:00',005);
